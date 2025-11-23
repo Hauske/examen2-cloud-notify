@@ -1,4 +1,20 @@
-import { $Enums } from "@prisma/client";
+enum TipoSociedad {
+  S_EN_NC = "S_EN_NC",        // Sociedad en Nombre Colectivo
+  S_EN_CS = "S_EN_CS",        // Sociedad en Comandita Simple
+  S_DE_RL = "S_DE_RL",        // Sociedad de Responsabilidad Limitada
+  SA = "SA",                  // Sociedad Anónima
+  S_EN_C_POR_A = "S_EN_C_POR_A", // Sociedad en Comandita por Acciones
+  S_COOP = "S_COOP",          // Sociedad Cooperativa
+  SAS = "SAS"                 // Sociedad por Acciones Simplificada
+}
+
+enum UnidadMedia {
+  H87 = "H87",
+  KGM = "KGM",
+  LTR = "LTR",
+  MTR = "MTR",
+  E48 = "E48"
+}
 
 export interface ISaleNote {
     id: string;
@@ -8,7 +24,7 @@ export interface ISaleNote {
     total: number;
     cliente: {
         id: string;
-        razonSocial: $Enums.TipoSociedad;
+        razonSocial: TipoSociedad;
         nombreComercial: string;
         rfc: string;
         correoElectronico: string;
@@ -27,7 +43,7 @@ export interface IContent {
     producto: {
         id: string;
         nombre: string;
-        unidadMedida: $Enums.UnidadMedia;
+        unidadMedida: UnidadMedia;
         precioBase: number;
     };
 }
