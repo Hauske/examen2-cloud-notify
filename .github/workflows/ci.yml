@@ -21,9 +21,6 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
-      - name: Generar cliente Prisma
-        run: npx prisma generate
-
       - name: Validar compilación TypeScript
         run: npm run build
 
